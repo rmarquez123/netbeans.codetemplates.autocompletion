@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+AutoUpdate-Show-In-Client: true
+OpenIDE-Module: com.rm.actc
+OpenIDE-Module-Layer: com/rm/actc/layer.xml
+OpenIDE-Module-Localizing-Bundle: com/rm/actc/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

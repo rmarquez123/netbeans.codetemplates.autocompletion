@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.1//EN" "https://netbeans.org/dtds/filesystem-1_1.dtd">
+<filesystem>
+    <folder name="Editors">
+        <folder name="text">
+            <folder name="x-java">
+                <folder name="CodeTemplates">
+                    <file name="codetemplates.xml" url="codetemplates.xml"/>
+                </folder>
+                <folder name="CompletionProviders">
+                    <file name="com-rm-actc-completionprovider-JavaActcAutoCompletionProvider.instance_hidden"/>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

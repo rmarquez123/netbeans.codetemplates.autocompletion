@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "https://netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+<codetemplates>
+  <codetemplate abbreviation="abc_def" xml:space="preserve">
+        <code>some code for abc.def</code>
+        <description>abc.def: some description for abc.def</description>
+    </codetemplate>
+  <codetemplate abbreviation="abc_efg" xml:space="preserve">
+        <code>some code for abc.efg</code>
+        <description>abc.efg: some description for abc.efg</description>
+    </codetemplate>
+    
+  <codetemplate abbreviation="abc_d_ef" xml:space="preserve">
+        <code>some code for abc.d.ef</code>
+        <description>abc.d.ef: some description for abc.d.ef</description>
+    </codetemplate>
+    
+    <codetemplate abbreviation="abc_d_fg" xml:space="preserve">
+        <code>some code for abc.d.fg</code>
+        <description>abc.d.fg: some description for abc.d.fg</description>
+    </codetemplate>
+</codetemplates>
