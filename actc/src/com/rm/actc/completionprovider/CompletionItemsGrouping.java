@@ -2,8 +2,6 @@ package com.rm.actc.completionprovider;
 
 import com.rm.actc.completionitem.ActcCompletionItem;
 import com.rm.actc.completionitem.GroupActcCompletionItem;
-import java.util.HashMap;
-import java.util.Map;
 import org.netbeans.spi.editor.completion.CompletionItem;
 
 /**
@@ -11,7 +9,6 @@ import org.netbeans.spi.editor.completion.CompletionItem;
  */
 final class CompletionItemsGrouping {
 
-  private final Map<CompletionItem, CompletionItem> values = new HashMap<>();
   private final String text;
 
   /**

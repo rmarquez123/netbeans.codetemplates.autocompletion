@@ -2,9 +2,7 @@ package com.rm.actc.completionprovider;
 
 import com.rm.actc.DocumentUtils;
 import com.rm.actc.completionitem.ActcCompletionItem;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.swing.text.Document;
@@ -42,7 +40,7 @@ class AsyncCompletionQueryImpl extends AsyncCompletionQuery {
       if (validInputs) {
         String text = DocumentUtils.extractText(dcmnt, caretOffset);
         List<CompletionItem> list = this.getItemsForText(text);
-        crs.addAllItems(list); 
+        crs.addAllItems(list);
       } else {
         System.out.println("invalid document or caret");
       }
@@ -50,40 +48,32 @@ class AsyncCompletionQueryImpl extends AsyncCompletionQuery {
       crs.finish();
     }
   }
-  
+
   /**
-   * 
+   *
    * @param dcmnt
    * @param caretOffset
-   * @return 
+   * @return
    */
   private boolean isValidDocument(Document dcmnt, int caretOffset) {
     return dcmnt != null && caretOffset > -1;
   }
-  
+
   /**
-   * 
+   *
    * @param text
-   * @param crs 
+   * @param crs
    */
   private List<CompletionItem> getItemsForText(String text) {
     CompletionItemsGrouping grouping = new CompletionItemsGrouping(text);
-    Map<CompletionItem, List<CompletionItem>> items = this.codeTemplates.stream()
-            .filter(new IncludeCodeTemplatePredicate(text))
-            .map(this::mapCodeTemplate)
-            .collect(Collectors.groupingBy(grouping::group));
-    List<CompletionItem> list = new ArrayList<>();
-    items.keySet().forEach(key -> {
-      if (((ActcCompletionItem) key).getText() != null
-              ||  ((ActcCompletionItem) key).getCodeTemplate() != null) {
-        if (items.get(key).size() == 1) {
-          list.add(items.get(key).get(0));
-        } else {
-          list.add(key);
-        }
-      }
-    });
-    return list;
+    CompletionItemResultSet resultSet = new CompletionItemResultSet();
+    this.codeTemplates.stream()
+                    .filter(new CodeTemplateContainsTextPredicate(text))
+                    .map(this::mapCodeTemplate)
+                    .collect(Collectors.groupingBy(grouping::group))
+                    .forEach(resultSet::storeCompletionItemResult);
+    List<CompletionItem> result = resultSet.list;
+    return result;
   }
 
   /**
